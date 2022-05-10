@@ -33,10 +33,10 @@ struct s_actions;
 typedef struct s_actions
 {
 	int				nbr_philo;
+	int				nbr_meals;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
-	int				nbr_meals;
 } 	t_actions;
 
 /*

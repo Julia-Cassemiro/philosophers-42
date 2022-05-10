@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../include/philo.h"
 
 static int valid_arg(t_actions *actions)
 {
 	if (actions->nbr_philo < 1 || actions->time_to_die == 0)
 		return 0;
-	if (actions->nbr_meals != 0 || nbr_meals < 1)
+	if (actions->nbr_meals != 0 && actions->nbr_meals < 1)
 		return 0;
 	return 1;
 }
