@@ -89,7 +89,7 @@ int main(int argc, char **argv)
 	memset(&actions, 0, sizeof(actions));
 	ft_check_valid(argc, argv, &actions);
 	init_struct(&actions);
-	if (!set_meals(&actions));
+	if (!set_meals(&actions))
 		return(0);
 	free_all(&actions, 3);
 	return (0);
