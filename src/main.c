@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 	ft_check_valid(argc, argv, &actions);
 	init_struct(&actions);
 	if (!set_meals(&actions))
-		return(0);
+	 	return(0);
 	free_all(&actions, 3);
 	return (0);
 }

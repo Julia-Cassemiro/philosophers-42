@@ -41,8 +41,8 @@ void	*philo_thread_action(void	*evr_philo)
 		usleep(1000);
 	while(!check_deaths(philo))//o philo n morreu
 	{
-		if(eating(philo) == 0); //ele retorna zero qnd morreu, se n morreu continua o while
-			printf("\nalo\n");
+		if(eating(philo) == 0) //ele retorna zero qnd morreu, se n morreu continua o while
+			break;
 		if (check_deaths(philo) || !sleeping(philo))
 			break ;
 		status(philo, "is thinking");
@@ -71,3 +71,4 @@ int 	set_meals(t_actions *actions)
 	}
 	return (start_meal(actions));	
 }
+

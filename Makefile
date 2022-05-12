@@ -15,12 +15,11 @@ P_INC		=	include/
 P_SRC		=	src/
 P_OBJ		=	obj/
 
+F_SRC		=	main.c dinner.c actions.c init.c do_philo.c utils.c
+F_FILES		=	$(FILES)
+
 FILES		=	$(addprefix $(P_SRC), $(F_SRC))
 OBJ			=	$(addprefix $(P_OBJ), $(F_FILES:.c=.o))
-
-
-F_SRC		=	main.c actions.c meals.c do_philo.c init.c meals.c utils.c
-F_FILES		=	$(FILES)
 
 INC			=	-I$(P_INC)
 CC			=	gcc
