@@ -37,3 +37,35 @@ int	ft_atoi(const char *nptr)
 	}
 	return (result);
 }
+
+void	ft_bzero(void *s, size_t len)
+{
+	unsigned char	*ns;
+	size_t			i;
+
+	i = 0;
+	ns = s;
+	while (i++ < len)
+		*ns++ = 0;
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*nn;
+
+	nn = malloc(nmemb * size);
+	if (nn == NULL)
+		return (NULL);
+	ft_bzero(nn, nmemb * size);
+	return (nn);
+}
+
+long int	get_time(void)
+{
+	struct timeval	tv;
+	long int		milliseconds;
+
+	gettimeofday(&tv, NULL);
+	milliseconds = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	return (milliseconds);
+}

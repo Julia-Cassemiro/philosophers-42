@@ -39,11 +39,11 @@ static void set_actions(t_actions *actions, int value, int v)
 		actions->time_to_sleep = value; //and 800 is sleep time
 	else
 		actions->nbr_meals = value;
-	printf("nbr_philo = %d\n", actions->nbr_philo);
-	printf("time_to_die = %d\n", actions->time_to_die);
-	printf("time_to_eat = %d\n", actions->time_to_eat);
-	printf("time_to_sleep = %d\n", actions->time_to_sleep);
-	printf("nbr_meals = %d\n", actions->nbr_meals);
+	// printf("nbr_philo = %d\n", actions->nbr_philo);
+	// printf("time_to_die = %d\n", actions->time_to_die);
+	// printf("time_to_eat = %d\n", actions->time_to_eat);
+	// printf("time_to_sleep = %d\n", actions->time_to_sleep);
+	// printf("nbr_meals = %d\n", actions->nbr_meals);
 }
 
 void	ft_check_actions(void)
@@ -72,7 +72,7 @@ static void		ft_check_valid(int argc, char **argv, t_actions *actions)
 	while (argv[i] != NULL)
 	{
 		set_actions(actions, ft_atoi(argv[i]), i); //sem o atoi n da certo, pq o argv vem como char.
-		printf("value = %d, v = %d\n\n\n\n", ft_atoi(argv[i]), i);
+		//printf("value = %d, v = %d\n\n\n\n", ft_atoi(argv[i]), i);
 		i++;
 	}
 	if (!valid_arg(actions)) //se for passado valores errados, e as minhas açoes n forem setadas
@@ -88,5 +88,7 @@ int main(int argc, char **argv)
 
 	memset(&actions, 0, sizeof(actions));
 	ft_check_valid(argc, argv, &actions);
+	init_struct(&actions);
+	set_meals(&actions);
 	return (0);
 }
