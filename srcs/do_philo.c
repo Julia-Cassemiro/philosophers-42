@@ -26,7 +26,27 @@ void 	*kill_philo(t_philos *philo)
 {
 	pthread_mutex_lock(&philo->actions->forks[0]); //a gente bloqueia o unico garfo q o philo pega
 	status(philo, "ELE VAI PEGAR UM GARFO");
+	usleep(philo->actions->time_to_die * 1000);
 	pthread_mutex_unlock(&philo->actions->forks[0]);
 	status(philo, "E MORREU..");
 	return (NULL);
+}
+
+int	free_all(t_actions *actions, int i)
+{
+	int	y;
+
+	free(actions->forks);
+	free(actions->all_philos);
+	pthread_mutex_destroy(&actions->print);
+	y = 0;
+	while (y < actions->nbr_philo)
+	{
+		if (i == 0)
+			pthread_mutex_destroy(&actions->forks[y]);
+		if (i == 1)
+			pthread_mutex_destroy(&actions->all_philos[y].mutex);
+		y++;
+	}
+	return (0);
 }

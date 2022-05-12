@@ -30,6 +30,8 @@ typedef struct s_philos
 	int					r_fork; //right fork
 	long int			time; //time
 	pthread_t			thread; // thread para cada philo
+	pthread_mutex_t		mutex; //mutex do fork e philo
+	int					counter_meals;
 	//int				nbr_philo;
 	//int				total_nbr_of_meals;
 	//int				total_nbr_of_meals_args;
@@ -59,8 +61,8 @@ typedef struct s_actions
 /*
 	init struct functions
 */
-int	init_struct(t_actions *actions);
-int create_philo(t_actions *actions);
+void	init_struct(t_actions *actions);
+void	create_philo(t_actions *actions);
 
 /*
 	utils functions
@@ -71,6 +73,7 @@ int			ft_isdigit(int i);
 void		*ft_calloc(size_t nmemb, size_t size);
 void		ft_bzero(void *s, size_t len);
 long int	get_time(void);
+int			free_all(t_actions *actions, int i);
 
 /*
 	time functions
@@ -84,6 +87,11 @@ long int	get_time(void);
 int 	set_meals(t_actions *actions);
 void 	*kill_philo(t_philos *philo);
 void 	status(t_philos *philo, char *message);
+int		check_deaths(t_philos *philo);
+int 	forks(t_philos *philo);
+void	u_forks(t_philos *philo);
+int		eating(t_philos *philo);
+int		sleeping(t_philos *philo);
 
 
 #endif
